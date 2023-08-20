@@ -1,6 +1,8 @@
 <view class="notice-container">
-  <image class="notice-title-backgrd">"/img/whitebg"</image> 
-  <text class="notice-title">公告栏：</text> 
+  <div class="overlap-container">
+    <image class="notice-title-backgrd">"/img/whitebg"</image> 
+    <text class="notice-title">公告栏：</text> 
+  </div>
   <view class="notice-scroll-inner" animation="{{scrollAnimation}}">
     <view class="notice-item">
       <image class="notice-icon" src="/images/notice-icon.png"></image>

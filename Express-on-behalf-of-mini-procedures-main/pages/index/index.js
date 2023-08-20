@@ -23,7 +23,7 @@ Page({
   },
   onLoad() {
     //this.getOpenid();
-    wx.cloud.database().collection("swiper")
+    wx.cloud.database().collection("swiper")   
     .get()
     .then(res=> {
       console.log("获取轮播图数据成功",res)
@@ -69,23 +69,27 @@ Page({
     })
   },
   goSever01() {
+    wx.navigateTo({
+
+      url: '/pages/service01/service01?school=' + "qianjiangwan",
+    })
     //判断用户是否登录
    
 
     //判断用户选择的校区
-    if (school) {
-      wx.showToast({
-        icon: "none",
-        title: '请先选择所在城市',
-      })
-    } else {
-      if (this.data.test.default == "杭州") {
-        wx.navigateTo({
+    // if (school) {
+    //   wx.showToast({
+    //     icon: "none",
+    //     title: '请先选择所在城市',
+    //   })
+    // } else {
+    //   if (this.data.test.default == "杭州") {
+    //     wx.navigateTo({
 
-          url: '/pages/service01/service01?school=' + "qianjiangwan",
-        })
-      } 
-    }
+    //       url: '/pages/service01/service01?school=' + "qianjiangwan",
+    //     })
+    //   } 
+    // }
 
   },
   goSever02() {
@@ -109,50 +113,45 @@ Page({
     //       url: '/pages/service02/service02?school=' + "qianjiangwan",
     //     })
     //   } 
-
     // }
-
   },
   goSever03() {
-    //判断用户是否登录
-   
-
-    if (school) {
-      wx.showToast({
-        icon: "none",
-        title: '请先选择所在城市',
-      })
-    } else {
-      if (this.data.test.default == "杭州") {
-
-        wx.navigateTo({
-
-          url: '/pages/service03/service03?school=0',
-        })
-      } 
-
-    }
+    wx.navigateTo({
+      url: '/pages/service03/service03',
+    })
+    // //判断用户是否登录
+    // if (school) {
+    //   wx.showToast({
+    //     icon: "none",
+    //     title: '请先选择所在城市',
+    //   })
+    // } else {
+    //   if (this.data.test.default == "杭州") {
+    //     wx.navigateTo({
+    //       url: '/pages/service03/service03?school=0',
+    //     })
+    //   }
+    // }
   },
 
   goSever04() {
+    wx.navigateTo({
+      url: '/pages/service03/service03',
+    })
+  
     //判断用户是否登录
-   
-
-    if (school) {
-      wx.showToast({
-        icon: "none",
-        title: '请先选择所在城市',
-      })
-    } else {
-      if (this.data.test.default == "杭州") {
-
-        wx.navigateTo({
-
-          url: '/pages/service03/service03?school=0',
-        })
-      } 
-
-    }
+    // if (school) {
+    //   wx.showToast({
+    //     icon: "none",
+    //     title: '请先选择所在城市',
+    //   })
+    // } else {
+    //   if (this.data.test.default == "杭州") {
+    //     wx.navigateTo({
+    //       url: '/pages/service03/service03?school=0',
+    //     })
+    //   } 
+    // }
   },
 
   showSchool:function(){
@@ -199,16 +198,16 @@ Page({
 
   startScroll: function () {
     const animation = wx.createAnimation({
-      duration: this.data.scrollWidth * 20, // 根据内容宽度设置滚动速度
+      duration: this.data.scrollWidth * 35, // 根据内容宽度设置滚动速度
       timingFunction: 'linear',
       delay: 0
     });
-    this.data.scrollAnimation = animation.translateX(-this.data.scrollWidth).step();
+    this.data.scrollAnimation = animation.translateX(-this.data.scrollWidth-wx.getSystemInfoSync().windowWidth).step();
     this.setData({
       scrollAnimation: this.data.scrollAnimation.export()
     });
     setTimeout(() => {
-      this.data.scrollAnimation = animation.translateX(0).step({ duration: 0 });
+      this.data.scrollAnimation = animation.translateX(wx.getSystemInfoSync().windowWidth).step({ duration: 0 });
       this.setData({
         scrollAnimation: this.data.scrollAnimation.export()
       });

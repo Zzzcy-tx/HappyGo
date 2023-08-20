@@ -1,28 +1,29 @@
 .notice-container {
   display: flex;
   align-items: center;
-  padding: 16rpx;
+  padding: 0rpx;
 }
 
 
 .notice-title-backgrd{
-  height: 16rpx;
-  width: auto;
-  background-image: "/img/whitebg.png";
-  font-size: 20rpx;
-  font-weight: bold;
-  margin-right: 0rpx; /* 适当的间距 */
-  white-space: nowrap; /* 防止子项换行 */
-  z-index: 9999; /* 设置高层级，使对象在顶部 */
+  height: 10mm;
+  width: 0.01*wx.getSystemInfoSync().windowWidth;
   background-color: rgba(255, 255, 255, 1); /* 设置不透明的背景颜色 */
 }
 
 .notice-title {
-  background-image: none;
   font-size: 20rpx;
   font-weight: bold;
   margin-right: 0rpx; /* 适当的间距 */
+  margin-left: 0rpx;
   white-space: nowrap; /* 防止子项换行 */
+}
+
+.overlap-container {
+  position: absolute;
+  width: 15mm;
+  height: 8mm;
+  z-index: 2;
 }
 
 .notice-scroll {
@@ -63,11 +64,15 @@
 .banner {
   height: 480rpx;
   width: 750rpx;
+  z-index: 3;
+
 }
 
 .banner image {
   height: 480rpx;
   width: 100%;
+  z-index: 4;
+
 }
 
 .chooseSchool {
@@ -90,7 +95,7 @@
   /* height: 920rpx; */
   width: 700rpx;
   margin-left: 25rpx;
-  margin-top: 80rpx;
+  margin-top: 40rpx;
   border-bottom-left-radius: 15rpx;
   border-bottom-right-radius: 15rpx;
   border-top-left-radius: 15rpx;
