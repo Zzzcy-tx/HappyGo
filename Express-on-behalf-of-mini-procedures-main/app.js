@@ -2,7 +2,7 @@
 
 var login = false;
 App({
-
+//111
   onLaunch() {
     // 展示本地存储能力
     const logs = wx.getStorageSync('logs') || [];
